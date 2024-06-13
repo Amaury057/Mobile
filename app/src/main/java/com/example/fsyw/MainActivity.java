@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             success = response.getBoolean("success");
             if (success == true) {
-                Intent interfaceActivity = new Intent(getApplicationContext(), InterfaceActivity.class);
-                interfaceActivity.putExtra("username", username);
-                startActivity(interfaceActivity);
+                Intent menuActivity = new Intent(getApplicationContext(), MenuActivity.class);
+                menuActivity.putExtra("username", username);
+                startActivity(menuActivity);
                 finish();
             } else {
                 error = response.getString("error");
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (JSONException e){
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 onApiResponse(response);
-                Toast.makeText(getApplicationContext(), "OPERATION SUCCESSFUL", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "OPERATION SUCCESSFUL", Toast.LENGTH_SHORT).show();
 
             }
         },  new Response.ErrorListener() {
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 if (error != null && error.getMessage() != null) {
                     errorMessage = error.getMessage();
                 }
-                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
             }
         });
 

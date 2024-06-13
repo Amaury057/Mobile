@@ -21,7 +21,7 @@ public class InterfaceActivity extends AppCompatActivity {
 
         username = getIntent().getStringExtra("username");
 
-        welcomeTextView.setText("Bienvenu :" + username);
+        welcomeTextView.setText("Bienvenue :" + username);
 
     }
 }
