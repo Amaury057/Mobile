@@ -81,6 +81,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             if (success == true) {
                 Intent interfaceActivity = new Intent(getApplicationContext(), InterfaceActivity.class);
                 interfaceActivity.putExtra("username", username);
+                startActivity(interfaceActivity);
                 finish();
             } else {
                 error = response.getString("error");
